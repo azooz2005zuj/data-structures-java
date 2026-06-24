@@ -1,0 +1,97 @@
+package linkedlist;
+
+import java.util.Scanner;
+
+public class LinkedList {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Node n = new Node();
+        char ans;
+        int number;
+        int Position;
+        char ans2;
+        do {
+            System.out.println("what you want?");
+            System.out.println("i - insert");
+            System.out.println("r - remove");
+            System.out.println("p - printLinkedList");
+            System.out.println("u - update");
+            System.out.println("f - search");
+            System.out.println("e - exit");
+            ans = in.next().charAt(0);
+            switch (ans) {
+                case 'i':
+                    System.out.println("what you want?");
+                    System.out.println("f - insertFirst");
+                    System.out.println("l - insertLast");
+                    System.out.println("p - insertAtPosition");
+                    ans2 = in.next().charAt(0);
+                    switch (ans2) {
+                        case 'f':
+                            System.out.println("enter the number");
+                            number = in.nextInt();
+                            n.insertFirst(number);
+                            break;
+                        case 'l':
+                            System.out.println("enter the number");
+                            number = in.nextInt();
+                            n.insertLast(number);
+                            break;
+                        case 'p':
+                            System.out.println("enter the number");
+                            number = in.nextInt();
+                            System.out.println("emter the Position");
+                            Position = in.nextInt();
+                            n.insertAtPosition(Position, number);
+                            break;
+                        case 'b':
+                            break;
+                        default:
+                            System.err.println("Invalid character");
+                    }
+                    break;
+                case 'r':
+                    System.out.println("what you want?");
+                    System.out.println("f - insertFirst");
+                    System.out.println("l - insertLast");
+                    System.out.println("p - insertAtPosition");
+                    ans2 = in.next().charAt(0);
+                    switch (ans2) {
+                        case 'f':
+                            n.removeFirt();
+                            break;
+                        case 'l':
+                            n.removeLast();
+                            break;
+                        case 'p':
+                            System.out.println("enter the number you want remove");
+                            number = in.nextInt();
+                            n.removeItem(number);
+                            break;
+                        case 'b':
+                            break;
+                        default:
+                            System.err.println("Invalid character");
+                    }
+                    break;
+                case 'p':
+                    n.printLinkedList();
+                    break;
+                case 'u':
+                    System.out.println("enter the old number to updated");
+                    number = in.nextInt();
+                    System.out.println("enter the new number");
+                    Position = in.nextInt();
+                    n.update(number, Position);
+                    break;
+                case 's':
+                    System.out.println("enter the number");
+                    number = in.nextInt();
+                    n.search(number);
+                    break;
+            }
+        } while (ans != 'e');  
+    }
+
+}
